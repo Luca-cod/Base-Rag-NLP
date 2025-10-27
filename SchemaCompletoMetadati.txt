@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "id": "string",                  // ID univoco installazione (es. timestamp)
+    "boxioId": "string",             // ID del controller BOX-IO
+    "name": "string",                // Nome installazione
+    "revision": "string",            // Versione (es. "20241114110528")
+    "major": number,                 // Versione major
+    "minor": number,                 // Versione minor
+    "clusterId": number              // ID cluster (opzionale)
+  },
+  "areas": [
+    {
+      "uuid": "string",              // UUID univoco area
+      "id": number,                  // ID numerico area
+      "name": "string",              // Nome area (es. "Warehouse A")
+      "partitions": [
+        {
+          "uuid": "string",         // UUID partizione
+          "id": number,              
+          "name": "string"           // Nome partizione (es. "First floor")
+        }
+      ],
+      "longitude": number,           // Coordinata geografica
+      "latitude": number             // Coordinata geografica
+    }
+  ],
+  "endpoints": [
+    {
+      "uuid": "string",              // UUID dispositivo
+      "id": number,                  // ID numerico
+      "category": number,            // Codice categoria (0,15,11,18)
+      "name": "string",              // Nome dispositivo
+      "defaultParameter": "string",  // Parametro predefinito (opzionale)
+      "parameters": [
+        {
+          "name": "string",          // Nome parametro (es. "temperature")
+          "dataType": number,        // Tipo dato (0=int, 1=float, 2=bool, etc.)
+          "unit": "string",          // Unità misura (es. "celsius")
+          "logType": number,         // Tipo log (0=config, 1=action, 3=monitor)
+          "operation": {             // Solo per parametri azionabili
+            "type": "string"         // "switch", "button", "update"
+          }
+        }
+      ],
+      "partitions": ["string"],      // UUID partizioni associate
+      "visualizationType": "string"  // Tipo UI (es. "VAYYAR_CARE", "BOXIO")
+    }
+  ],
+  "statistics": {                    // Opzionale: dati aggregati
+    "totalEndpoints": number,
+    "totalParameters": number,
+    "sensorCount": number
+  }
+}
+
+
+
+
+///COME MAPPARLI NEI METADATI LANGCHAIN:
+
+interface EndpointMetadata {
+  // Identificativi
+  source: "installation-config.json", // Fisso o nome file
+  loc: string,                       // Percorso assoluto file
+  type: "endpoint",                  // Tipo documento
+  
+  // Da endpoint originale
+  uuid: string,
+  name: string,
+  category: number,                  // 0,15,11,18
+  categoryName: string,              // Mappato da DEVICE_CATEGORIES
+  isSensor: boolean,                 // true solo se category === 18
+  visualizationType: string,
+  partitions: string[],              // UUIDs
+  
+  // Statistiche
+  parametersCount: number,
+  monitoringParams: number,          // Parametri con logType=3
+  configurableParams: number,        // Parametri con operation
+  
+  // Collegamenti
+  areaName?: string,                 // Ricavato da partitions[0]
+  partitionName?: string             // Ricavato da partitions[0]
+}
+
+const DEVICE_CATEGORIES = {
+  0: "controller",
+  15: "smart_light", 
+  11: "energy_meter",
+  18: "sensor"
+} as const;

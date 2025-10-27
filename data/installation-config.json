@@ -1,0 +1,2266 @@
+{
+    "areas": [
+        {
+            "uuid": "83966fe8-1564-4acf-a816-7cd79f274037",
+            "id": 0,
+            "image": "",
+            "name": "(TEST) Warehouse A",
+            "partitions": [
+                {
+                    "uuid": "d554afab-f66c-40c9-b868-56a64b08bc4e",
+                    "id": 0,
+                    "name": "First floor"
+                },
+                {
+                    "uuid": "098416a1-4317-4761-b6db-47b8f11386c4",
+                    "id": 1,
+                    "name": "Second floor"
+                }
+            ],
+            "longitude": 11.021395307075888,
+            "latitude": 45.394473171858884
+        }
+    ],
+    "configurations": [],
+    "endpoints": [
+        {
+            "uuid": "0208a84e-c989-40b0-ac81-583c3b4a13b0",
+            "id": 0,
+            "category": 0,
+            "defaultParameter": "abilita_connessione",
+            "mapping": "1111111111111111",
+            "name": "BOX-IO",
+            "parameters": [
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "bsp_version",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T08:59:18.636Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "mac_address",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T08:59:18.636Z",
+                    "defaultStateValue": "00:14:2d:6d:7a:d5",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "abilita_connessione",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T08:59:18.636Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "firmware_version",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T08:59:18.636Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "coord_type",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T08:59:18.636Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "coord_upgradable",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T08:59:18.636Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "connettivita",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T08:59:18.636Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 5,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "figli",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T08:59:18.636Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                }
+            ],
+            "partitions": [
+                "d554afab-f66c-40c9-b868-56a64b08bc4e"
+            ],
+            "visualizationType": "BOXIO",
+            "visualizationName": "BOXIO",
+            "x": 0,
+            "y": 0,
+            "xmlRefVersion": "",
+            "tags": [
+                ""
+            ]
+        },
+        {
+            "uuid": "79ae7f15-609d-44b8-bb09-a71d9c94c76d",
+            "id": 1,
+            "category": 15,
+            "defaultParameter": "voltage",
+            "mapping": "24e124756d180486",
+            "name": "Smart light controller",
+            "parameters": [
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "voltage",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "active_power",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "power_factor",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "power_consumption",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt_hour",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_current",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "unitPrefix": "milli",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "line_1",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "line_2",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "line_3",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "line_4",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "line_5",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "line_6",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "line_7",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "line_8",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "report_frequency",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "update"
+                    },
+                    "maxVal": "64800",
+                    "minVal": "60",
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "1200",
+                    "useDefault": true,
+                    "unit": "second",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "toggle_power_consuption",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "batch_lines",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "update"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "turn_on_all",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "turn_off_all",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 4,
+                    "enumerationVal": [
+                        "CURRENT-OVERLOAD",
+                        "NOTHING"
+                    ],
+                    "logType": 1,
+                    "name": "alarm",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "NOTHING",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "reboot_device_network",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "set_power_consumption_report",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "reset_power_consumption",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "request_report",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "DevAddr",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 4,
+                    "enumerationVal": [
+                        "OTAA",
+                        "ABP"
+                    ],
+                    "logType": 0,
+                    "name": "activation_type",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "OTAA",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "AppEUI",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "24e124c0002a0001",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "AppKey",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "11111111111111111111111111111111",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "AppSKey",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "NwkSKey",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "fCntUp",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "maxVal": "4294967295",
+                    "minVal": "-1",
+                    "step": "1",
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "-1",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "fCntDown",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "maxVal": "4294967295",
+                    "minVal": "-1",
+                    "step": "1",
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "-1",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "connettivita",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:06.970Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                }
+            ],
+            "partitions": [
+                "d554afab-f66c-40c9-b868-56a64b08bc4e"
+            ],
+            "visualizationType": "WS558",
+            "x": 0,
+            "y": 0,
+            "xmlRefVersion": "",
+            "tags": [
+                ""
+            ]
+        },
+        {
+            "uuid": "da21b892-6182-4f76-b5c5-c52b80607228",
+            "id": 2,
+            "category": 0,
+            "defaultParameter": "temperatura",
+            "mapping": "1111111111111111",
+            "name": "Thermostat",
+            "parameters": [
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "temperatura",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:39.306Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "celsius",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "setpoint",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "update"
+                    },
+                    "maxVal": "30",
+                    "minVal": "11",
+                    "step": "1",
+                    "defaultStateTime": "2024-10-08T09:07:39.306Z",
+                    "defaultStateValue": "25",
+                    "useDefault": true,
+                    "unit": "celsius",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "local_temperature_calibration",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "maxVal": "2.5",
+                    "minVal": "-2.5",
+                    "step": "0.1",
+                    "defaultStateTime": "2024-10-08T09:07:39.306Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "celsius",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 4,
+                    "enumerationVal": [
+                        "OFF",
+                        "COOL",
+                        "HEAT"
+                    ],
+                    "logType": 1,
+                    "name": "system_mode",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "update"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:39.306Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 4,
+                    "enumerationVal": [
+                        "COOLING_ONLY",
+                        "COOLING_WITH_REHEAT",
+                        "HEATING_ONLY",
+                        "HEATING_WITH_REHEAT",
+                        "COOLING_AND_HEATING",
+                        "COOLING_AND_HEATING_WITH_REHEAT"
+                    ],
+                    "logType": 1,
+                    "name": "control_sequence_of_operation",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "update"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:39.306Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "connettivita",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:39.306Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "abbandona_rete",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:39.306Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "batteria_scarica",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:07:39.306Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                }
+            ],
+            "partitions": [
+                "d554afab-f66c-40c9-b868-56a64b08bc4e"
+            ],
+            "visualizationType": "SMABIT_AV2010_32",
+            "x": 0,
+            "y": 0,
+            "xmlRefVersion": "",
+            "tags": [
+                ""
+            ]
+        },
+        {
+            "uuid": "eaf97aeb-1a34-40e5-8197-7d1b7fdb4b49",
+            "id": 3,
+            "category": 0,
+            "defaultParameter": "accensione",
+            "mapping": "ec1bbdfffe9847f0",
+            "name": "Line 1 lights",
+            "parameters": [
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "accensione",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "switch"
+                    },
+                    "defaultStateTime": "2024-10-08T09:08:43.884Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "livello",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "update"
+                    },
+                    "maxVal": "100",
+                    "minVal": "0",
+                    "step": "1",
+                    "defaultStateTime": "2024-10-08T09:08:43.884Z",
+                    "defaultStateValue": "100",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "identifica",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T09:08:43.884Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "connettivita",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:08:43.884Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "abbandona_rete",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T09:08:43.884Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                }
+            ],
+            "partitions": [
+                "098416a1-4317-4761-b6db-47b8f11386c4"
+            ],
+            "visualizationType": "LED_DRIVER",
+            "x": 0,
+            "y": 0,
+            "xmlRefVersion": "",
+            "tags": [
+                ""
+            ]
+        },
+        {
+            "uuid": "2beaf79c-3c02-4282-9bf3-4af1cda1f676",
+            "id": 5,
+            "category": 11,
+            "defaultParameter": "connettivita",
+            "mapping": "",
+            "name": "Energy meter",
+            "parameters": [
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "connettivita",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_line_to_neutral_volts",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_line_to_neutral_volts",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_line_to_neutral_volts",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_current",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_current",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_current",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_power",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_power",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_power",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_volt_amps",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_volt_amps",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_volt_amps",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_volt_amps_reactive",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere_reactive",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_volt_amps_reactive",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere_reactive",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_volt_amps_reactive",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere_reactive",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_power_factor",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_power_factor",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_power_factor",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_phase_angle",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "degree",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_phase_angle",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "degree",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_phase_angle",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "degree",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "average_line_to_neutral_volts",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "average_line_current",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "sum_of_line_currents",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_system_power",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_system_volt_amps",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_system_var",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere_reactive",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_system_power_factor",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_system_phase_angle",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "degree",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "frequency_of_supply_voltages",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "hertz",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_system_power_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "maximum_total_system_power_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_system_va_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "maximum_total_system_va_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "neutral_current_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "maximum_neutral_current_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "line_1_to_line_2_volts",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "line_2_to_line_3_volts",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "line_3_to_line_1_volts",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "average_line_to_line_volts",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "volt",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "neutral_current",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_l/n_volts_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_l/n_volts_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_l/n_volts_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_current_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_current_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_current_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "average_line_to_neutral_volts_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "average_line_current_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_current_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_current_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_current_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "maximum_phase_1_current_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "maximum_phase_2_current_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "maximum_phase_3_current_demand",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "ampere",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "line_1_to_line_2_volts_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "line_2_to_line_3_volts_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "line_3_to_line_1_volts_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "average_line_to_line_volts_thd",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "percent",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_active_energy",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt_hour",
+                    "unitPrefix": "kilo",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "total_reactive_energy",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere_reactive_per_hour",
+                    "unitPrefix": "kilo",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_import_active_energy",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt_hour",
+                    "unitPrefix": "kilo",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_import_active_energy",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt_hour",
+                    "unitPrefix": "kilo",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_import_active_energy",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "watt_hour",
+                    "unitPrefix": "kilo",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_1_import_reactive_energy",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere_reactive_per_hour",
+                    "unitPrefix": "kilo",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_2_import_reactive_energy",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere_reactive_per_hour",
+                    "unitPrefix": "kilo",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 1,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "phase_3_import_reactive_energy",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T09:59:50.590Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "voltampere_reactive_per_hour",
+                    "unitPrefix": "kilo",
+                    "notifyFrequency": 0
+                }
+            ],
+            "partitions": [
+                "098416a1-4317-4761-b6db-47b8f11386c4"
+            ],
+            "visualizationType": "EASTRON_SDM630",
+            "x": 0,
+            "y": 0,
+            "xmlRefVersion": "",
+            "tags": [
+                ""
+            ]
+        },
+        {
+            "uuid": "4d97fd1b-bbdc-45a0-8054-be88a94d489f",
+            "id": 6,
+            "category": 0,
+            "defaultParameter": "connettivita",
+            "mapping": "000d6f00170e3717",
+            "name": "Roller shutter actuator",
+            "parameters": [
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 3,
+                    "name": "window_covering_percentage",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "update"
+                    },
+                    "defaultStateTime": "2024-10-08T10:17:49.339Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "window_covering_command_up",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T10:17:49.339Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "window_covering_command_down",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T10:17:49.339Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "window_covering_command_stop",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T10:17:49.339Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "window_covering_type",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T10:17:49.339Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "abbandona_rete",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "button"
+                    },
+                    "defaultStateTime": "2024-10-08T10:17:49.339Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "frequenza_report",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "operation": {
+                        "type": "update"
+                    },
+                    "defaultStateTime": "2024-10-08T10:17:49.339Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "second",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "connettivita",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-10-08T10:17:49.339Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                }
+            ],
+            "partitions": [
+                "098416a1-4317-4761-b6db-47b8f11386c4"
+            ],
+            "visualizationType": "GEWISS_GWA1531",
+            "x": 0,
+            "y": 0,
+            "xmlRefVersion": "",
+            "tags": [
+                ""
+            ]
+        },
+        {
+            "uuid": "d0760b13-fc43-4c73-bc3b-ab9ea2699bcc",
+            "id": 7,
+            "category": 18,
+            "defaultParameter": "fall",
+            "mapping": "id_RTg6OUY6NkQ6RjQ6RTY6OTA",
+            "name": "Fall sensor",
+            "parameters": [
+                {
+                    "dataType": 3,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "fall",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-11-14T10:31:53.548Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "presence",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-11-14T10:31:53.548Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "temperature",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-11-14T10:31:53.548Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "unit": "fahrenheit",
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 0,
+                    "enumerationVal": [],
+                    "logType": 1,
+                    "name": "ssid",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-11-14T10:31:53.548Z",
+                    "defaultStateValue": "0",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                },
+                {
+                    "dataType": 2,
+                    "enumerationVal": [],
+                    "logType": 0,
+                    "name": "connettivita",
+                    "notifyPolicy": {
+                        "type": "always",
+                        "intervals": []
+                    },
+                    "defaultStateTime": "2024-11-14T10:31:53.548Z",
+                    "defaultStateValue": "false",
+                    "useDefault": true,
+                    "notifyFrequency": 0
+                }
+            ],
+            "partitions": [
+                "098416a1-4317-4761-b6db-47b8f11386c4"
+            ],
+            "visualizationType": "VAYYAR_CARE",
+            "x": 0,
+            "y": 0,
+            "xmlRefVersion": "",
+            "tags": [
+                ""
+            ]
+        }
+    ],
+    "metadata": {
+        "id": "20241008085640_0842140910",
+        "boxioId": "26cd0f56-ad6c-4152-aa36-14896b5accab",
+        "name": "(TEST) Warehouse A",
+        "revision": "20241114110528",
+        "major": 3,
+        "minor": 0,
+        "clusterId": 26
+    }
+}

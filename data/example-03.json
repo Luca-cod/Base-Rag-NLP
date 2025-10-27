@@ -1,0 +1,72 @@
+{
+    "manifest": {
+        "uuid": "uuid",
+        "name": "Demo Automatism",
+        "description": "This is a demo automatism",
+        "installationUuid": "831d39b0-6cda-4559-81cf-45088a563686"
+    },
+    "cron": {
+        "expressions": [
+            "0 4-5 * * *"
+        ]
+    },
+    "inputs": [
+        {
+            "type": "DOMOTIC_PARAMETER",
+            "source": {
+                "parameterName": "temperature",
+                "boxioId": "1234567890",
+                "endpointUuid": "temperature"
+            }
+        },
+        {
+            "type": "HEALTH_PARAMETER",
+            "source": {
+                "parameterName": "heartRate",
+                "userId": 12
+            }
+        }
+    ],
+    "condition": {
+        "uuid": "404e",
+        "operator": "OR",
+        "operands": [
+            {
+                "uuid": "81cf",
+                "operator": "MAINTAINED_FOR_SECONDS",
+                "seconds": 10,
+                "condition": {
+                    "uuid": "505e",
+                    "operator": "GREATER_THAN",
+                    "operand1": "$input[0]",
+                    "operand2": "25"
+                }
+            },
+            {
+                "uuid": "at32",
+                "operator": "EQUAL",
+                "operand1": "$input[1]",
+                "operand2": "75"
+            }
+        ]
+    },
+    "actions": [
+        {
+            "uuid": "uuid",
+            "type": "TRIGGER_ALARM",
+            "userIds": [
+                100
+            ],
+            "alarm": {
+                "name": "Temperature alarm",
+                "description": "The temperature is too high, please check the temperature",
+                "shouldRepeat": true,
+                "repeatInterval": 10
+            },
+            "notification": {
+                "title": "Temperature is too high",
+                "message": "The temperature is too high, please check the temperature"
+            }
+        }
+    ]
+}

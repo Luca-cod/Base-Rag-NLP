@@ -1,0 +1,519 @@
+{
+    "type": "object",
+    "description": "Defines an automatism for the Cloud Engine, including metadata, inputs, conditions, and actions.",
+    "properties": {
+        "manifest": {
+            "type": "object",
+            "description": "Metadata describing the automatism.",
+            "properties": {
+                "uuid": {
+                    "type": "string",
+                    "description": "The unique id of the automatism."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the automatism."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A brief description of the automatism."
+                },
+                "installationUuid": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique identifier for the installation where the automatism is applied."
+                }
+            },
+            "required": [
+                "uuid",
+                "name",
+                "installationUuid"
+            ]
+        },
+        "cron": {
+            "type": "object",
+            "description": "The time in which exec the automatism.",
+            "properties": {
+                "expressions": {
+                    "type": "array",
+                    "description": "List of the expression to validate the CRON.",
+                    "items": {
+                        "type": "string",
+                        "description": "Expression to validate the CRON"
+                    }
+                }
+            },
+            "required": [
+                "expressions"
+            ]
+        },
+        "inputs": {
+            "type": "array",
+            "description": "List of input sources that the condition evaluates.",
+            "items": {
+                "type": "object",
+                "description": "Defines an input source used in the condition.",
+                "oneOf": [
+                    {
+                        "properties": {
+                            "type": {
+                                "const": "DOMOTIC_PARAMETER",
+                                "description": "Indicates a domotic parameter input type."
+                            },
+                            "source": {
+                                "type": "object",
+                                "description": "Details for the domotic parameter input source.",
+                                "properties": {
+                                    "parameterName": {
+                                        "type": "string",
+                                        "description": "The name of the parameter (e.g., temperature)."
+                                    },
+                                    "boxioId": {
+                                        "type": "string",
+                                        "description": "The unique identifier of the BOX-IO device."
+                                    },
+                                    "endpointUuid": {
+                                        "type": "string",
+                                        "description": "The endpoint identifier for the parameter."
+                                    }
+                                },
+                                "required": [
+                                    "parameterName",
+                                    "boxioId",
+                                    "endpointUuid"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "source"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "type": {
+                                "const": "HEALTH_PARAMETER",
+                                "description": "Indicates a health parameter input type."
+                            },
+                            "source": {
+                                "type": "object",
+                                "description": "Details for the health parameter input source.",
+                                "properties": {
+                                    "parameterName": {
+                                        "type": "string",
+                                        "description": "The name of the parameter (e.g., heart rate)."
+                                    },
+                                    "userId": {
+                                        "type": "integer",
+                                        "description": "The unique identifier for the user."
+                                    }
+                                },
+                                "required": [
+                                    "parameterName",
+                                    "userId"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "source"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "type": {
+                                "const": "EVENT",
+                                "description": "Indicates an event input type."
+                            },
+                            "source": {
+                                "type": "object",
+                                "description": "Details for the event input source.",
+                                "properties": {
+                                    "eventType": {
+                                        "type": "string",
+                                        "description": "The type of event to monitor."
+                                    }
+                                },
+                                "required": [
+                                    "eventType"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "source"
+                        ]
+                    }
+                ]
+            }
+        },
+        "condition": {
+            "$ref": "#/definitions/condition"
+        },
+        "actions": {
+            "type": "array",
+            "description": "List of actions to perform when the condition is met.",
+            "items": {
+                "type": "object",
+                "description": "Defines an action to execute.",
+                "oneOf": [
+                    {
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "description": "The unique identifier for the action."
+                            },
+                            "type": {
+                                "const": "SET_DOMOTIC_PARAMETER_VALUE",
+                                "description": "Action to set a domotic parameter value."
+                            },
+                            "parameter": {
+                                "type": "object",
+                                "description": "Details of the domotic parameter to set.",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "The name of the parameter to set."
+                                    },
+                                    "boxioId": {
+                                        "type": "string",
+                                        "description": "The unique ID of the BOX-IO device."
+                                    },
+                                    "endpointUuid": {
+                                        "type": "string",
+                                        "description": "The endpoint UUID of the parameter."
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "boxioId",
+                                    "endpointUuid"
+                                ]
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "The value to set for the domotic parameter."
+                            }
+                        },
+                        "required": [
+                            "uuid",
+                            "type",
+                            "parameter",
+                            "value"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "description": "The unique identifier for the action."
+                            },
+                            "type": {
+                                "const": "SEND_NOTIFICATION",
+                                "description": "Action to send a notification to users."
+                            },
+                            "userIds": {
+                                "type": "array",
+                                "description": "List of user IDs to notify.",
+                                "items": {
+                                    "type": "integer"
+                                }
+                            },
+                            "platforms": {
+                                "type": "array",
+                                "description": "List of platforms to send the notification (e.g., EMAIL, PUSH).",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "EMAIL",
+                                        "PUSH"
+                                    ]
+                                }
+                            },
+                            "notification": {
+                                "type": "object",
+                                "description": "Details of the notification to send.",
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "description": "The title of the notification."
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "description": "The message body of the notification."
+                                    }
+                                },
+                                "required": [
+                                    "title",
+                                    "message"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "uuid",
+                            "type",
+                            "userIds",
+                            "platforms",
+                            "notification"
+                        ]
+                    },
+                    {
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "description": "The unique identifier for the action."
+                            },
+                            "type": {
+                                "const": "TRIGGER_ALARM",
+                                "description": "Action to trigger an alarm for users."
+                            },
+                            "userIds": {
+                                "type": "array",
+                                "description": "List of user IDs to notify.",
+                                "items": {
+                                    "type": "integer"
+                                }
+                            },
+                            "alarm": {
+                                "type": "object",
+                                "description": "Details of the alarm to trigger.",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "description": "The name of the alarm."
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "The description of the alarm."
+                                    },
+                                    "shouldRepeat": {
+                                        "type": "boolean",
+                                        "description": "Whether the notification should repeat."
+                                    },
+                                    "repeatInterval": {
+                                        "type": "integer",
+                                        "description": "Interval in seconds for repeating the notification."
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "description",
+                                    "shouldRepeat",
+                                    "repeatInterval"
+                                ]
+                            },
+                            "notification": {
+                                "type": "object",
+                                "description": "Details of the notification to send when triggering the alarm.",
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "description": "The title of the notification."
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "description": "The message body of the notification."
+                                    }
+                                },
+                                "required": [
+                                    "title",
+                                    "message"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "uuid",
+                            "type",
+                            "userIds",
+                            "alarm",
+                            "notification"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "manifest",
+        "inputs",
+        "condition",
+        "actions"
+    ],
+    "definitions": {
+        "condition": {
+            "type": "object",
+            "description": "Defines the logical condition to evaluate the inputs.",
+            "properties": {
+                "uuid": {
+                    "type": "string",
+                    "description": "The unique condition uuid"
+                },
+                "operator": {
+                    "type": "string",
+                    "description": "The logical or comparison operator for this condition.",
+                    "enum": [
+                        "AND",
+                        "OR",
+                        "GREATER_THAN",
+                        "GREATER_THAN_OR_EQUAL",
+                        "LESS_THAN",
+                        "LESS_THAN_OR_EQUAL",
+                        "EQUAL",
+                        "MAINTAINED_FOR_SECONDS",
+                        "HAS_CHANGED_VALUE",
+                        "CRON",
+                        "TRIGGER"
+                    ]
+                },
+                "operands": {
+                    "type": "array",
+                    "description": "A list of conditions to evaluate when the operator is logical (AND/OR).",
+                    "items": {
+                        "$ref": "#/definitions/condition"
+                    },
+                    "minItems": 2
+                },
+                "operand1": {
+                    "type": "string",
+                    "description": "The first operand for comparison (e.g., input reference)."
+                },
+                "operand2": {
+                    "type": "string",
+                    "description": "The second operand for comparison (e.g., input value or reference)."
+                },
+                "seconds": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "The duration in seconds for which the condition must be maintained."
+                },
+                "expressions": {
+                    "type": "array",
+                    "description": "List of the expression to validate the CRON.",
+                    "items": {
+                        "type": "string",
+                        "description": "Expression to validate the CRON"
+                    },
+                    "minItems": 1
+                },
+                "condition": {
+                    "$ref": "#/definitions/condition",
+                    "description": "The nested condition for temporal operators like MAINTAINED_FOR_SECONDS."
+                },
+                "match": {
+                    "type": "object",
+                    "description": "Criteria to match for the TRIGGER operator."
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "type": "object",
+                        "properties": {
+                            "operator": {
+                                "const": "MAINTAINED_FOR_SECONDS"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "uuid",
+                            "seconds",
+                            "condition"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "type": "object",
+                        "properties": {
+                            "operator": {
+                                "const": "HAS_CHANGED_VALUE"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "uuid",
+                            "operand1"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "type": "object",
+                        "properties": {
+                            "operator": {
+                                "enum": [
+                                    "GREATER_THAN",
+                                    "GREATER_THAN_OR_EQUAL",
+                                    "LESS_THAN",
+                                    "LESS_THAN_OR_EQUAL",
+                                    "EQUAL"
+                                ]
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "uuid",
+                            "operand1",
+                            "operand2"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "type": "object",
+                        "properties": {
+                            "operator": {
+                                "enum": [
+                                    "AND",
+                                    "OR"
+                                ]
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "uuid",
+                            "operands"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "type": "object",
+                        "properties": {
+                            "operator": {
+                                "const": "CRON"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "uuid",
+                            "expressions"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "type": "object",
+                        "properties": {
+                            "operator": {
+                                "const": "TRIGGER"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "uuid",
+                            "operand1",
+                            "match"
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
