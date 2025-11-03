@@ -108,7 +108,7 @@ It is essential that you always communicate the limitations of the information a
 
 //const model = new SentenceTransformer('paraphrase-MiniLM-L6-v2');
 export const targetFile = 'installation-config.json'; //File specifico da processare
-export const directoryPath = "/home/luca/ragts2GeneralQuery New/src/data";
+export const directoryPath = "/home/luca/RagBaseNLP/src/data";
 export const filePath = path.join(directoryPath, targetFile);
 
 
