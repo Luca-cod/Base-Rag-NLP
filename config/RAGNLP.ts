@@ -6,6 +6,8 @@ import { RunnableMap, RunnablePassthrough } from "@langchain/core/runnables";
 import { PromptTemplate } from "@langchain/core/prompts";
 import path from "path";
 import { Document as LangChainDocument } from "langchain/document";
+import { user_query } from "./Query.js";
+import { promises as fs } from "fs";
 
 export const config = {
   documentPath: "/home/luca/RagBaseNLP/src/data/", //Cartella con i documenti
@@ -64,12 +66,12 @@ If a piece of information is not explicitly present in the data, it is your resp
 But if the context is very verbose, use the data that is most relevant to you for that particular query, For example, if the query requires only one parameter, return that parameter without returning all the others.
 
 
-⚠️ USE EXCLUSIVELY THE DATA PROVIDED IN THE GIVEN CONTEXT
+USE EXCLUSIVELY THE DATA PROVIDED IN THE GIVEN CONTEXT
 
 You may INTERPRET clearly labeled parameters (e.g., "setpoint" means target temperature) 
 but NEVER infer values not present in the data.
 
-⚠️ ALWAYS STATE WHEN INFORMATION IS NOT AVAILABLE IN THE DATA
+ALWAYS STATE WHEN INFORMATION IS NOT AVAILABLE IN THE DATA
 AVAILABLE DEVICES CONTEXT
 
 {context}
@@ -110,52 +112,17 @@ export const filePath = path.join(directoryPath, targetFile);
 
 
 
-//export const user_query = "Give me a list of the uuid from the 'sensor' devices in the configuration. Indicate the name and category.";
-//export const user_query = "Dimmi che dispositivi ci sono nel file";
-//export const user_query = "Che sensore mi può dare informazioni di temperatura?";
-//export const user_query = "Endpoint per il controllo luci";
-/***"Come si chiama il termostato"?
-"Che sensore mi può dare informazioni di temperatura"? 
-"Esistono dei sensori per controllare luci"? */
-//export const user_query = "Tell me something about the controller and the firmaware version"; //---> funziona
-//export const user_query = "What is the name of thermostat?"
-//export const user_query = "Dimmi tutti i parametri del termostato"
-//export const user_query = "Give me all parameters of BOX-IO";
-//export const user_query = "Show me all the sensors connected to the first floor.";
-//export const user_query = "Show me sensors";
-//export const user_query = "Show me devices";
-//export const user_query = "Accendi le luci";
-//export const user_query = "What is the default thermostat setpoint?"; // il "default" rischia di far si che il modello non se la senta di "inventare" perchè non abbiamo un parametro "default" il valore da attribuire
-//export const user_query = "What is the value of the thermostat setpoint?";
-//export const user_query = "Show me all devices located on the second floor";
-//export const user_query = "Show me the UUIDs of actuator, thermostat and controller";
-//export const user_query = "Dimmi qual'è l' UUID del controller luci soggiorno";
-
-const user_query = "When the temperature exceeds 25°, turn on the air conditioner"
-
-/**A. Test con Query Tipiche:
-- "Mostra i sensori di temperatura"
-- "UUID del controller luci soggiorno"  
-- "Parametri configurabili termostato"
-- "Dispositivi zona cucina" */
-
-
-/**                           QUERY PER AUTOMAZIONE, DA TESTARE 
- *     "Create an automation for the thermostat"
-
-    "When the temperature exceeds 25°, turn on the air conditioner"
-
-    "Schedule the lights to turn on at 6:00 PM"
-
-    "If there is motion, turn on the lights" 
-    
-    */
 
 
 
 async function main() {
   try {
-    await runRgaSytsem(user_query);
+    let response = await runRgaSytsem(user_query);
+
+
+    // Salvataggio della risposta
+    await saveResponse(user_query, response);
+
   } catch (error) {
     console.log("Errore nell'esecuzione del RAG...");
   }
@@ -219,6 +186,7 @@ async function runRgaSytsem(query: string) {
 
     console.log(response);
 
+
     return response;
 
   } catch (error) {
@@ -245,6 +213,56 @@ function filterByContentRelevance(docs: string | any, query: string, threshold =
     const relevanceScore = score / queryTerms.length;
     return relevanceScore >= threshold;
   });
+}
+
+
+
+//  ===========================================================================
+//                        SAVE THE RESPONSE (NLP FORMAT)
+//  ===========================================================================
+async function saveResponse(query: string, response: string | any): Promise<void> {
+
+  const responseText = typeof response === 'string' ? response : JSON.stringify(response, null, 2);
+
+  console.log("Start saveResponse");
+
+  try {
+    // Create a folder if it doesn't exist yet
+    await fs.mkdir(config.outputPath, { recursive: true });
+
+    // Create a unique file name
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+    const filename = `response_${timestamp}.json`;
+    const fullPath = path.join(config.outputPath, filename);
+
+    // Data to save
+    /*const dataToSave = {
+      query,
+      response,
+      timestamp: new Date().toISOString(),
+      model: config.modelName
+    };
+    const ragResponse: RagResponse = {
+      query,
+      response,
+      timestamp: new Date().toISOString(),
+      context: [] // Aggiungi il contesto se necessario  ------------------>???????
+    };*/
+
+    // Save the file
+    await fs.writeFile(
+      fullPath,
+      //responseText,
+      JSON.stringify(response, null, 2),
+      "utf-8"
+    );
+
+    console.log("Response saved in:", fullPath);
+    console.log("Query executed: ", query);
+  } catch (error) {
+    console.error("Error saving response:", error);
+    throw error;
+  }
 }
 
 main();
