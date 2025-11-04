@@ -1,13 +1,8 @@
 
 import { ExtendDocument, targetFile, filePath } from "../../../config/RAGNLP.js";
-import { filterByVisualizationType } from "../../chains/Chain.js"
 import { promises as fs } from "fs";
 import { Document } from "langchain/document";//Document non è un array e non ha un metodo push
 import { buildGlobalPartitionMap } from "./buildGlobalPartitionsMap.js";
-
-import { timeStamp } from "console";
-import { json } from "stream/consumers";
-
 
 /*
 Ora viene creato un unico documento che contiene:

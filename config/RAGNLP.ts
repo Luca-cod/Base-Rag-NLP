@@ -1,14 +1,11 @@
 import { FaissStore } from "@langchain/community/vectorstores/faiss";
 import { Ollama } from "@langchain/ollama";
 import { OllamaEmbeddings } from "@langchain/ollama";
-import { loadDocumentsJSON } from "../core/retrieval/loaders/loadDocumentJSON3 copy.js";
-import { Chroma } from "@langchain/community/vectorstores/chroma"; //Alternativa a FAISS
+import { loadDocumentsJSON, EndpointMetadata } from "../core/retrieval/loaders/loadDocumentJSON3 copy.js";
 import { RunnableMap, RunnablePassthrough } from "@langchain/core/runnables";
-import { JsonOutputParser } from "@langchain/core/output_parsers";
 import { PromptTemplate } from "@langchain/core/prompts";
 import path from "path";
 import { Document as LangChainDocument } from "langchain/document";
-import { EndpointMetadata } from "../core/retrieval/loaders/loadDocumentJSON3 copy.js";
 
 export const config = {
   documentPath: "/home/luca/RagBaseNLP/src/data/", //Cartella con i documenti
@@ -106,7 +103,6 @@ It is essential that you always communicate the limitations of the information a
 
 
 
-//const model = new SentenceTransformer('paraphrase-MiniLM-L6-v2');
 export const targetFile = 'installation-config.json'; //File specifico da processare
 export const directoryPath = "/home/luca/RagBaseNLP/src/data";
 export const filePath = path.join(directoryPath, targetFile);
@@ -132,8 +128,10 @@ export const filePath = path.join(directoryPath, targetFile);
 //export const user_query = "What is the default thermostat setpoint?"; // il "default" rischia di far si che il modello non se la senta di "inventare" perchè non abbiamo un parametro "default" il valore da attribuire
 //export const user_query = "What is the value of the thermostat setpoint?";
 //export const user_query = "Show me all devices located on the second floor";
-export const user_query = "Show me the UUIDs of actuator, thermostat and controller";
+//export const user_query = "Show me the UUIDs of actuator, thermostat and controller";
 //export const user_query = "Dimmi qual'è l' UUID del controller luci soggiorno";
+
+const user_query = "When the temperature exceeds 25°, turn on the air conditioner"
 
 /**A. Test con Query Tipiche:
 - "Mostra i sensori di temperatura"
@@ -217,7 +215,7 @@ async function runRgaSytsem(query: string) {
       .pipe(prompt)
       .pipe(llm);
 
-    const response = await chain.invoke({ query: "Tell me something about the controller and the firmaware version" });
+    const response = await chain.invoke({ query: "When the temperature exceeds 25°, turn on the air conditioner" });
 
     console.log(response);
 
