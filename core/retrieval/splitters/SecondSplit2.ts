@@ -1,7 +1,7 @@
 
 
 import { Endpoint } from "src/config/RAG.js";
-import { ChunkType, EndpointMetadata, SeqMetadata } from "../loaders/loadDocumentJSON3 copy.js";
+import { ChunkType, EndpointMetadata, SeqMetadata } from "../loaders/loadDocumentJSON.js";
 
 
 

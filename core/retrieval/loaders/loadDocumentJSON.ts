@@ -115,10 +115,6 @@ export interface EndpointMetadata {
     parameterOperations?: string[];
     hasMeasurementParams?: boolean;
 
-    //revision?: string;
-    //major?: number;
-    //minor?: number;
-
     totalEndpoints?: number;
     totalAreas?: number;
     hasPartitions?: boolean; //Indicates whether the document has partitions
@@ -175,12 +171,17 @@ export interface EndpointAreaRelation {
     location: string[];
 }
 
+export interface LoadDocumentResult {
+    documents: ExtendDocument[],
+    partitionMap: Map<string, string>
+}
 
 
 
-export async function loadDocumentsJSON(): Promise<{ Documents: ExtendDocument[], partitionMap: Map<string, any> }> {
+export async function loadDocumentsJSON(): Promise<LoadDocumentResult> {
     const processedUUIDs = new Set<string>();
     let rawContent: string;
+    const documents: ExtendDocument[] = [];
 
     try {
         rawContent = await fs.readFile(filePath, 'utf-8');
@@ -206,6 +207,7 @@ export async function loadDocumentsJSON(): Promise<{ Documents: ExtendDocument[]
         throw new Error("Invalid JSON structure: root must be an object");
     }
 
+
     const hasValidEndpoints = Array.isArray(jsonContent.endpoints) && jsonContent.endpoints.length > 0;
     const hasValidAreas = Array.isArray(jsonContent.areas) && jsonContent.areas.length > 0;
 
@@ -221,7 +223,7 @@ export async function loadDocumentsJSON(): Promise<{ Documents: ExtendDocument[]
     const areaPartitionMaps = hasValidAreas ? buildAreaPartitionMaps(jsonContent) : [];
     const endpointAreaRelations = hasValidAreas ? buildEndpointAreaRelations(jsonContent, areaPartitionMaps) : new Map<string, EndpointAreaRelation>();
 
-    const Documents: ExtendDocument[] = [];
+
 
     // Create installation content
     const installationContent = {
@@ -264,11 +266,11 @@ export async function loadDocumentsJSON(): Promise<{ Documents: ExtendDocument[]
 
         }
     }) as unknown as ExtendDocument;
-    Documents.push(mainDocument);
+    documents.push(mainDocument);
 
     console.log("Single raw document created for two-stage chunking");
     return {
-        Documents,
+        documents,
         partitionMap: globalPartitionMap
     }
 }
@@ -438,7 +440,7 @@ function buildEndpointAreaRelations(
     console.log(`Relazioni create: ${totalRelationsCreated}`);
     console.log(`Relazioni uniche nella mappa: ${relations.size}`);
 
-    // DEBUG DETTAGLIATO
+    // DETAILED DEBUG
     if (relations.size > 0) {
         console.log("\nPrime 3 relazioni create:");
         let count = 0;
@@ -472,7 +474,7 @@ function buildEndpointAreaRelations(
 
 }
 
-function getFallbackDocument(error: any): { Documents: ExtendDocument[], partitionMap: Map<string, any> } {
+function getFallbackDocument(error: any): LoadDocumentResult {
     const fallbackUUID = 'fallback-' + Math.random().toString(36).substring(2, 9);
     const fallBack = {
         pageContent: JSON.stringify({
@@ -510,7 +512,7 @@ function getFallbackDocument(error: any): { Documents: ExtendDocument[], partiti
     };
     //"Document loading failed. Please check the configuration file."
     return {
-        Documents: [fallBack],
+        documents: [fallBack],
         partitionMap: new Map()
     }
 }

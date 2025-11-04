@@ -1,0 +1,15 @@
+I'll follow the guidelines and provide an accurate analysis based on the provided context.
+
+The query "When the temperature exceeds 25°, turn on the air conditioner" seems to be related to a thermostat or a temperature control system. However, I need more information about the specific device or system being referred to.
+
+From the provided data, it appears that there is only one parameter mentioned in the query: "setpoint". This value is specified as 25°C.
+
+The "setpoint" parameter is documented under the following parameters:
+
+* Parameters (8): 
+  * temperatura (celsius) Type: 1
+  * setpoint (celsius) Type: Unknown
+
+Since the "setpoint" parameter is not explicitly mentioned in the query, I will only return this information.
+
+The absence of any other relevant information about the thermostat or temperature control system makes it impossible to provide a more detailed analysis.

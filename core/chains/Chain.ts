@@ -4,7 +4,7 @@ import { FaissStore } from "@langchain/community/vectorstores/faiss";
 import { Ollama } from "@langchain/ollama";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { RunnableSequence, RunnablePassthrough } from "@langchain/core/runnables";
-import { EndpointMetadata } from "../retrieval/loaders/loadDocumentJSON3 copy.js";
+import { EndpointMetadata } from "../retrieval/loaders/loadDocumentJSON.js";
 import { Document as LangChainDocument } from "langchain/document";
 import { ExtendsSeqMetadata } from "../retrieval/splitters/SecondSplit2.js"
 import { JsonOutputParser } from "@langchain/core/output_parsers";
