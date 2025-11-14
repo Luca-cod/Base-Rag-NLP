@@ -1,20 +1,24 @@
 import { FaissStore } from "@langchain/community/vectorstores/faiss";
 import { Ollama } from "@langchain/ollama";
 import { OllamaEmbeddings } from "@langchain/ollama";
-import { loadDocumentsJSON, EndpointMetadata } from "../core/retrieval/loaders/loadDocumentJSON.js";
+import { EndpointMetadata } from "../core/retrieval/loaders/loadDocumentJSON.js";
 import { RunnableMap, RunnablePassthrough } from "@langchain/core/runnables";
 import { PromptTemplate } from "@langchain/core/prompts";
 import path from "path";
 import { Document as LangChainDocument } from "langchain/document";
 import { user_query } from "./Query.js";
 import { promises as fs } from "fs";
+import { RecursiveCharacterTextSplitter } from "langchain/text_splitter"
+import { JSONLoader } from "langchain/document_loaders/fs/json";
 
 
+
+//    -- Configurations --
 export const config = {
   documentPath: "/home/luca/RagBaseNLP/src/data/", // Folder containing the documents
   faissIndexPath: "./faiss_index", // Path to save the FAISS index
   outputPath: "/home/luca/RagBaseNLP/src/response/", // Folder to save JSON responses
-  modelName: "llama3.2:1b", // Ollama model name
+  modelName: "llama3.2:1b", // Ollama model name , can i use also llama3.2:3b for a better response
   chunkSize: 1000, // Chunk size for text splitting
   chunkOverlap: 250, // Overlap between chunks
   retrievalConfig: {
@@ -26,7 +30,7 @@ export const config = {
   }
 };
 
-// llama3.2:3b
+
 export const llm = new Ollama({
   baseUrl: "http://localhost:11434",
   model: config.modelName,
@@ -36,6 +40,7 @@ export const llm = new Ollama({
   topP: 0.95 // For greater coherence
 });
 
+//   -- Embeddings Model --
 export const embeddings = new OllamaEmbeddings({
   baseUrl: "http://127.0.0.1:11434",  // Ollama API URL
   model: "nomic-embed-text",
@@ -43,14 +48,19 @@ export const embeddings = new OllamaEmbeddings({
   maxConcurrency: 3, // Reduce this if debugging concurrency issues
 });
 
+//     -- Interface for functions structure response type --        Spero sia corretto questo inglese lol
 export interface ExtendDocument extends LangChainDocument {
   metadata: EndpointMetadata,
   readableText?: string; // Optional field for human-readable text
 }
 
 
+
+//     -- Prompt --
 const prompt = PromptTemplate.fromTemplate(`
-  You are an assistant specialized in the analysis of home automation systems. Your task is to provide accurate information based solely on the data provided in the context.
+  You are an assistant specialized in the analysis of home automation systems. 
+Your task is to provide accurate information based solely on the data provided in the context.
+Always reply in English, even if the contest contains words in other languages!
 It is essential that you maintain a strictly analytical approach and never add information that is not explicitly present in the data available to you.
 
 IMPORTANT! 
@@ -111,19 +121,24 @@ export const filePath = path.join(directoryPath, targetFile);
 
 
 
-/*
-   ============================================================================================================
-                                                    MAIN
-   ============================================================================================================
-*/
+
+//   ============================================================================================================
+//                                                    MAIN
+//   ============================================================================================================
+
 
 async function main() {
   try {
-    let response = await runRgaSytsem(user_query);
 
+    const startTotal = performance.now();
+
+    let response = await runRgaSytsem(user_query);
 
     // Salvataggio della risposta
     await saveResponse(user_query, response);
+
+    const endTotal = performance.now();
+    console.log(`\nTOTAL EXECUTION TIME: ${(endTotal - startTotal).toFixed(2)} ms\n`);
 
   } catch (error) {
     console.log("Error while running RAG...");
@@ -134,33 +149,72 @@ async function runRgaSytsem(query: string) {
 
   try {
 
-    const Document = loadDocumentsJSON();
+    //const Document = loadDocumentsJSON(); 
 
-    //Create a Vector Store and load FAISS index
+    //      -- Loading Input Files --
+    let loader = new JSONLoader(filePath);
+
+    const docs = await loader.load();
+
+    //       -- Create the splitter --
+    const splitter = new RecursiveCharacterTextSplitter({
+      chunkSize: config.chunkSize,
+      chunkOverlap: config.chunkOverlap
+    });
+
+    //const text = splitter.splitText(); --> Split only one string
+
+    //      -- Splitting the documents loaded --
+    const texts = await splitter.splitDocuments(docs);
+    console.log("Split into", texts.length, "chunks");
+
+
+    // Log for see the structure of how the query is translate in numbers/embeddings
+    const singleVector = await embeddings.embedQuery(user_query);
+    console.log(singleVector.slice(0, 100));
+
+
+    //      -- Create a Vector Store and load FAISS index --
     let vectoreStore: FaissStore;
-    vectoreStore = await FaissStore.load(config.faissIndexPath, embeddings);
-
-    let k = config.retrievalConfig.k;
 
 
+    //      -- If the index is already exists, loading this index --
+    try {
 
-    //  retrievalDocs = await vectoreStore.similaritySearch(user_query, config.retrievalConfig.k);
+      //load quindi implica che è già stato creato.
+      vectoreStore = await FaissStore.load(config.faissIndexPath, embeddings);
+      console.log("FAISS index loaded successfully.");
+    } catch {
 
-    /**Versione con asRetrieval
+      console.log("Creating a new Index...");
+      vectoreStore = await FaissStore.fromDocuments(texts, embeddings)
+      await vectoreStore.save(config.faissIndexPath);
+      console.log("FAISS Index create and saved!");
+
+    }
+
+
+    //  retrievalDocs = await vectoreStore.similaritySearch(user_query, config.retrievalConfig.k); --> if i want use the similaritySearch
+
+    /**
+     * Version with asRetrieval
      **/
     const retriever = vectoreStore.asRetriever({
-      k,
-      searchType: "similarity", //Non supportrato "mmr"
+      k: config.retrievalConfig.k,
+      searchType: "similarity", //"mmr" not supported
       verbose: true
     });
 
+    //     -- invoke the retreiver --
     const retrievalDocs = await retriever.invoke(user_query);
-    console.log("Quanti documenti ha recuperato l'asRetriever? Ecco qua:", retrievalDocs.length);
+    console.log("How many documents we have obtained from asRetriever?:", retrievalDocs.length);
 
+    //     -- simple semantic filter for discard useless chunks --
     const filteringDocs = filterByContentRelevance(retrievalDocs, user_query, 0.3);
 
-    console.log("Quanti documenti otteniamo dopo il filtro per rilevanza?", filteringDocs.length);
+    console.log("How many documents do we get after the relevance filter?", filteringDocs.length);
 
+    //     -- create the Context --
     const context = filteringDocs.map((doc: any) => doc.pageContent).join("\n\n");
 
 
@@ -177,6 +231,7 @@ async function runRgaSytsem(query: string) {
       | StringOutputParser
     */
 
+    //     -- Chain ---
     const chain = RunnableMap.from({
       context: () => context,
       query: new RunnablePassthrough()//RunnablePassthrough.isRunnable((input: { query: string }) => input.query),
@@ -184,7 +239,8 @@ async function runRgaSytsem(query: string) {
       .pipe(prompt)
       .pipe(llm);
 
-    const response = await chain.invoke({ query: "When the temperature exceeds 25°, turn on the air conditioner" });
+    //const response = await chain.invoke({ query: "When the temperature exceeds 25°, turn on the air conditioner" });
+    const response = await chain.invoke({ user_query });
 
     console.log("\n\nQuestion:", user_query);
     console.log("\nAnswer:", response);
@@ -200,8 +256,8 @@ async function runRgaSytsem(query: string) {
 }
 
 
-
-function filterByContentRelevance(docs: string | any, query: string, threshold = 0.3) {
+//     -- Relevance score function --
+function filterByContentRelevance(docs: string | any, query: string, threshold = 0.2) {
   const queryTerms = query.toLowerCase().split(/\s+/).filter(term => term.length > 2);
 
   return docs.filter((doc: any) => {
@@ -247,7 +303,6 @@ async function saveResponse(query: string, response: string | any): Promise<void
     );
 
     console.log("Response saved in:", fullPath);
-    console.log("Query executed: ", query);
   } catch (error) {
     console.error("Error saving response:", error);
     throw error;

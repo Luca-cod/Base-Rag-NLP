@@ -6,7 +6,7 @@
 
 
 //export const user_query = "Show me the UUIDs of actuator, thermostat and controller";
-export const user_query = "When the temperature exceeds 25°, turn on the air conditioner"
+//export const user_query = "When the temperature exceeds 25°, turn on the air conditioner"
 //export const user_query = "Give me a list of the uuid from the 'sensor' devices in the configuration. Indicate the name and category.";
 //export const user_query = "Dimmi che dispositivi ci sono nel file";
 //export const user_query = "Che sensore mi può dare informazioni di temperatura?";
@@ -23,7 +23,7 @@ export const user_query = "When the temperature exceeds 25°, turn on the air co
 //export const user_query = "Show me devices";
 //export const user_query = "Accendi le luci";
 //export const user_query = "What is the default thermostat setpoint?"; // il "default" rischia di far si che il modello non se la senta di "inventare" perchè non abbiamo un parametro "default" il valore da attribuire
-//export const user_query = "What is the value of the thermostat setpoint?";
+export const user_query = "What is the value of the thermostat setpoint?";
 //export const user_query = "Show me all devices located on the second floor";
 //export const user_query = "Dimmi qual'è l' UUID del controller luci soggiorno";
 //export const user_query = " Shows environmental sensors in the living area that measure both temperature and humidity";
